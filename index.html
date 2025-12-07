@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Baza filmów — (づ￣ 3￣)づ</title>
+
+  <script>
+    // Deklaracja funkcji w sekcji head
+    function addMovie() {
+      // Pobranie wartości z pól po id
+      var movieTitle = document.getElementById("inputTitle").value;
+      var movieYear = document.getElementById("inputYear").value;
+      var movieActors = document.getElementById("inputActors").value;
+
+      // Wydruk w konsoli
+      console.log(movieTitle);
+      console.log(movieYear);
+      console.log(movieActors);
+
+
+      // Sprawdzenie niepustych wartości
+      if (movieTitle === "" || movieYear === "" || movieActors === "") {
+        alert("Wszystkie pola muszą być wypełnione!");
+        return;
+      }
+
+      // Dodanie nowego elementu do listy
+      var li = document.createElement("li");
+      li.innerHTML = "<input type='checkbox'> " + movieTitle + ", " + movieYear + ", " + movieActors;
+      document.getElementById("moviesList").appendChild(li);
+
+      // Komunikat i wyczyszczenie pól
+      alert("Dodano film: (☞ﾟヮﾟ)☞" + movieTitle);
+      document.getElementById("inputTitle").value = "";
+      document.getElementById("inputYear").value = "";
+      document.getElementById("inputActors").value = "";
+    }
+
+    // Funkcja usuwająca zaznaczone elementy
+    function removeMovies() {
+      var checkedBoxes = document.querySelectorAll("input[type='checkbox']:checked");
+      for (var i = 0; i < checkedBoxes.length; i++) {
+        document.getElementById("moviesList").removeChild(checkedBoxes[i].parentNode);
+      }
+      alert('Usunięto zaznaczone. 😥');
+    }
+  </script>
+</head>
+
+<body>
+  <h1>Baza filmów</h1>
+
+  <!-- Dodanie laybeli i nazwy przycisków -->
+  <form>
+    <label for="inputTitle">Tytuł 📽:</label><br>
+    <input type="text" id="inputTitle"><br><br>
+
+    <label for="inputYear">Rok: 🧻</label><br>
+    <input type="text" id="inputYear"><br><br>
+
+    <label for="inputActors">Aktorzy: 💩</label><br>
+    <input type="text" id="inputActors"><br><br>
+
+    <!-- Handler w przycisku -->
+    <button type="button" onclick="addMovie()">Dodaj 😎</button>
+    <button type="button" onclick="removeMovies()">Usuń zaznaczone 😲</button>
+  </form>
+
+  <h2>Lista filmów</h2>
+  <ul id="moviesList"></ul>
+
+  
+</body>
+</html>
