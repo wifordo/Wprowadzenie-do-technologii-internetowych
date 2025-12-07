@@ -2,6 +2,25 @@
 <html>
 <head>
   <title>Baza filmów — (づ￣ 3￣)づ</title>
+<!-- Style Milligram -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+  
+  <style>
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Dwie kolumny o równej szerokości */
+        gap: 40px; /* Odstęp między kolumnami */
+        margin-top: 20px; /* miejsce pod nagłówkiem H1 */
+    }
+    .col {
+        padding: 10px;
+    }
+  </style>
+
 
   <script>
     // Deklaracja funkcji w sekcji head
@@ -44,30 +63,41 @@
       alert('Usunięto zaznaczone. 😥');
     }
   </script>
+  
 </head>
 
 <body>
   <h1>Baza filmów</h1>
 
-  <!-- Dodanie laybeli i nazwy przycisków -->
-  <form>
-    <label for="inputTitle">Tytuł 📽:</label><br>
-    <input type="text" id="inputTitle"><br><br>
+  <div class="grid-container">
 
-    <label for="inputYear">Rok: 🧻</label><br>
-    <input type="text" id="inputYear"><br><br>
+    <!-- PRAWA KOLUMNA -->
+    <div class="col-right">
+      <!-- Dodanie laybeli i nazwy przycisków -->
+      <form>
+        <label for="inputTitle">Tytuł 📽:</label><br>
+        <input type="text" id="inputTitle"><br><br>
 
-    <label for="inputActors">Aktorzy: 💩</label><br>
-    <input type="text" id="inputActors"><br><br>
+        <label for="inputYear">Rok: 🧻</label><br>
+        <input type="text" id="inputYear"><br><br>
 
-    <!-- Handler w przycisku -->
-    <button type="button" onclick="addMovie()">Dodaj 😎</button>
-    <button type="button" onclick="removeMovies()">Usuń zaznaczone 😲</button>
-  </form>
+        <label for="inputActors">Aktorzy: 💩</label><br>
+        <input type="text" id="inputActors"><br><br>
 
-  <h2>Lista filmów</h2>
-  <ul id="moviesList"></ul>
+        <!-- Handler w przycisku -->
+        <button type="button" onclick="addMovie()">
+          <i class="fa-solid fa-plus fa-bounce"></i> Dodaj 😎
+        </button>
+        <button type="button" onclick="removeMovies()">Usuń zaznaczone 😲</button>
+      </form>
+    </div>
 
-  
+    <!-- LEWA KOLUMNA -->
+    <div class="col-left">
+      <h2>Lista filmów</h2>
+      <ul id="moviesList"></ul>
+    </div>
+
+  </div>
 </body>
 </html>
