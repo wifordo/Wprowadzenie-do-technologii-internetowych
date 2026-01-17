@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dodaj film</title>
+
+  <!-- Style -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+
+  <script>
+
+
+  </script>
+</head>
+
+<body>
+  <h1>Dodaj film</h1>
+
+    <form method="POST" action="/addMovie">
+    Title: <input type="text" name="title"><br>
+    Year: <input type="text" name="year"><br>
+    Actors: <input type="text" name="actors"><br>
+    <button type="submit">
+      <i class="fa-solid fa-circle-plus"></i> Add
+    </button>
+
+    <a class="button button-clear" href="/">← Wróć</a>
+  </form>
+</body>
+</html>

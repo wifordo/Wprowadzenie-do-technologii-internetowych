@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Baza filmów — Home</title>
+
+  <!-- Style -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+
+  <script>
+    function removeMovies() {
+      var checkedBoxes = document.querySelectorAll("input[type='checkbox']:checked");
+      for (var i = 0; i < checkedBoxes.length; i++) {
+        document.getElementById("moviesList").removeChild(checkedBoxes[i].parentNode);
+      }
+      alert('Usunięto zaznaczone 😥');
+    }
+  </script>
+</head>
+
+<body>
+  <h1>Baza filmów</h1>
+
+  <a class="button button-outline" href="/addMovie">
+    <i class="fa-solid fa-plus"></i> Dodaj nowy film
+  </a>
+
+  <h2>Lista filmów</h2>
+<form method="POST" action="/">
+  <ul>
+  {% for movie in movies %}
+    <li>
+      <input type="checkbox" name="movieToRemove" value="{{ movie[0] }}">
+      {{ movie[1] }}, {{ movie[2] }}, {{ movie[3] }}
+    </li>
+  {% endfor %}
+  </ul>
+
+  <button onclick="removeMovies()">Usuń zaznaczone 😲</button>
+    </form>
+</body>
+</html>
